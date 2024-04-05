@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Designbycode\EloquentDatatable\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class EloquentDatatableCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'eloquent-datatable';
 
     public $description = 'My command';
 
