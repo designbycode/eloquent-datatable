@@ -2,9 +2,9 @@
 
 namespace Designbycode\EloquentDatatable;
 
+use Designbycode\EloquentDatatable\Commands\EloquentDatatableCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Designbycode\EloquentDatatable\Commands\EloquentDatatableCommand;
 
 class EloquentDatatableServiceProvider extends PackageServiceProvider
 {
