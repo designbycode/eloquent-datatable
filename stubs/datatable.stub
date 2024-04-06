@@ -45,7 +45,7 @@
          */
         public function store(Request $request)
         {
-            TODO: return to_route('dashboard.products.edit', $post);
+            // TODO: return to_route('dashboard.products.edit', $post);
         }
 
         /**
@@ -53,7 +53,7 @@
          */
         public function edit(string $id)
         {
-            TODO: return view edit
+            // TODO: return view edit
         }
 
         /**
@@ -61,7 +61,7 @@
          */
         public function update(Request $request, string $id): void
         {
-            TODO: Model update
+            // TODO: Model update
         }
 
         /**
