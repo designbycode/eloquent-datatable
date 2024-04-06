@@ -1,3 +1,6 @@
 # Changelog
 
 All notable changes to `eloquent-datatable` will be documented in this file.
+## 1.0.0 - 2024-04-06   
+
+- Initial release
