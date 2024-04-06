@@ -1,0 +1,96 @@
+<?php
+	namespace App\Http\Controllers\Datatables;
+
+    use App\Models\StubModel;
+	use Designbycode\EloquentDatatable\EloquentDatatableController;
+    use Exception;
+    use Illuminate\Database\Eloquent\Builder;
+    use Illuminate\Http\Request;
+
+    class StubController extends EloquentDatatableController
+	{
+        /**
+         * @return void
+         */
+        public function __constructor(): void
+        {
+            parent::__construct();
+            // :middleware
+        }
+
+        /**
+         * A description of the entire PHP function.
+         *
+         * @return Builder
+         */
+		public function builder(): Builder
+		{
+			return StubModel::query();
+		}
+
+        /**
+         * A description of the entire PHP function.
+         *
+         * @param Request $request description
+         * @return array
+         * @throws Exception
+         */
+        public function index(Request $request): array
+        {
+            return $this->getResponse($request);
+        }
+
+        /**
+         * Store a newly created resource in storage.
+         */
+        public function store(Request $request)
+        {
+            TODO: return to_route('dashboard.products.edit', $post);
+        }
+
+        /**
+         * Show the form for editing the specified resource.
+         */
+        public function edit(string $id)
+        {
+            TODO: return view edit
+        }
+
+        /**
+         * Update the specified resource in storage.
+         */
+        public function update(Request $request, string $id): void
+        {
+            TODO: Model update
+        }
+
+        /**
+         * Remove the specified resource from storage.
+         */
+        public function destroy(string $ids): void
+        {
+            $this->itemsDelete($ids);
+        }
+
+
+        /**
+         * Get the columns for the quick create form.
+         *
+         * @return array
+         */
+        protected function getQuickCreateColumns(): array
+        {
+            return [''];
+        }
+
+        /**
+         * Retrieve displayable column names.
+         *
+         * @return array
+         */
+        protected function getDisplayableColumnNames(): array
+        {
+            return [// :fillable];
+        }
+
+	}

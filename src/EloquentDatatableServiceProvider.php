@@ -3,11 +3,20 @@
 namespace Designbycode\EloquentDatatable;
 
 use Designbycode\EloquentDatatable\Commands\EloquentDatatableCommand;
+use Illuminate\Support\Facades\Route;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class EloquentDatatableServiceProvider extends PackageServiceProvider
 {
+    public function boot()
+    {
+        parent::boot();
+        Route::macro('datatable', function ($url, $controller) {
+            Route::apiResource($url, $controller);
+        });
+    }
+
     public function configurePackage(Package $package): void
     {
         /*
@@ -18,8 +27,11 @@ class EloquentDatatableServiceProvider extends PackageServiceProvider
         $package
             ->name('eloquent-datatable')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_eloquent-datatable_table')
             ->hasCommand(EloquentDatatableCommand::class);
+
+        //            ->hasViewComponents('Datatable')
+        //            ->hasViews()
+        //            ->hasMigration('create_eloquent-datatable_table')
+        //            ->hasCommand(EloquentDatatableCommand::class);
     }
 }

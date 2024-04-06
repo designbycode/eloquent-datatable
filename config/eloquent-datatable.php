@@ -1,6 +1,9 @@
 <?php
 
-// config for Designbycode/EloquentDatatable
+/*
+ * Configuration for DesignByCode Eloquent Datatable
+ */
+
 return [
 
 ];
