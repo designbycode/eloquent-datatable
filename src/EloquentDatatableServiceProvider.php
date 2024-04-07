@@ -13,7 +13,7 @@ class EloquentDatatableServiceProvider extends PackageServiceProvider
     {
         parent::boot();
         Route::macro('datatable', function ($url, $controller) {
-            Route::apiResource($url, $controller);
+            Route::resource($url, $controller)->except('show', 'create');
         });
     }
 
