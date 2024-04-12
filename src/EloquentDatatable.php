@@ -109,8 +109,10 @@ trait EloquentDatatable
         $columns = $builder->getColumnListing($table);
         $columnsWithType = collect($columns)->mapWithKeys(function ($item) use ($builder, $table) {
             $key = $builder->getColumnType($table, $item);
+
             return [$item => $key];
         });
+
         return $columnsWithType->toArray();
     }
 
