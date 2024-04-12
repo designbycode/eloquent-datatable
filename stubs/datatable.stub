@@ -9,6 +9,20 @@
 
     class StubController extends EloquentDatatableController
 	{
+        protected bool $allowDeletion = true;
+
+        protected bool $allowCreation = true;
+
+        protected bool $allowEditing = true;
+
+        protected bool $createUsingDialog = false;
+
+        protected bool $allowSearching = true;
+
+        protected int $defaultLimit = 25;
+
+        protected string $sortDirection = 'desc';
+
         /**
          * @return void
          */
