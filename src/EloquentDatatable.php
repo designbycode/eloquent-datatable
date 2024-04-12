@@ -16,6 +16,8 @@ trait EloquentDatatable
 
     protected bool $allowCreation = true;
 
+    protected bool $allowEditing = true;
+
     protected bool $createUsingDialog = false;
 
     protected bool $allowSearching = true;
@@ -51,10 +53,11 @@ trait EloquentDatatable
                     'name' => $this->getDataTableName(),
                     'name_singular' => Str::singular($this->getDataTableName()),
                     'allow' => [
-                        'deletions' => $this->allowDeletion,
                         'creation' => $this->allowCreation,
-                        'searching' => $this->allowSearching,
                         'create_with_dialog' => $this->createUsingDialog,
+                        'editing' => $this->allowEditing,
+                        'deletions' => $this->allowDeletion,
+                        'searching' => $this->allowSearching,
                     ],
                     'pagination_limit' => $this->getLimit($request),
                 ],
@@ -106,10 +109,8 @@ trait EloquentDatatable
         $columns = $builder->getColumnListing($table);
         $columnsWithType = collect($columns)->mapWithKeys(function ($item) use ($builder, $table) {
             $key = $builder->getColumnType($table, $item);
-
             return [$item => $key];
         });
-
         return $columnsWithType->toArray();
     }
 
@@ -179,7 +180,9 @@ trait EloquentDatatable
 
     protected function itemUpdate(int $id, array $array): void
     {
-        $this->builder->findOrFail($id)->update($array);
+        if ($this->allowEditing) {
+            $this->builder->findOrFail($id)->update($array);
+        }
     }
 
     /**

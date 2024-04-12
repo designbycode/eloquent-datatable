@@ -2,6 +2,9 @@
 
 All notable changes to `eloquent-datatable` will be documented in this file.
 
+## 1.1.0 - 2024-04-12
+- feat: add new allow editing property
+
 ## 1.0.2 - 2024-04-07
 - fix: the Route:datatable route
 
